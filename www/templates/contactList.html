@@ -1,0 +1,42 @@
+<ion-view view-title="Contact List">
+  <div class="bar bar-subheader item-input-inset">
+    <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input ng-model="message.message" type="search" placeholder="Search........">
+    </label>
+    <button class="button button-positive" ng-click="searchContacts()">
+        Refresh
+    </button>
+  </div>
+	<ion-content>
+        <div class="padding">
+          <div class="list">
+            <div ng-repeat="contact in phoneContacts | orderBy: 'name.givenName'"
+			ng-if="contact.phoneNumbers!= null"
+            >
+
+            <a class="item item-avatar" href="#">
+            	<img src="https://cdn0.iconfinder.com/data/icons/users-android-l-lollipop-icon-pack/24/user-512.png">
+            	<h2>{{contact.name.givenName}}</h2>
+            	<p ng-repeat="number in contact.phoneNumbers">{{number.value}}</p>
+            </a>
+
+
+             <!--  <div class="item">
+                {{ contact.name.givenName }}
+              </div>
+              <div class="item item-text-wrap">
+                <p><strong>Number</strong></p>
+                <div ng-repeat="number in contact.phoneNumbers">
+                  <p>{{ number.value }}</p>
+                </div> -->
+               <!--  <p><strong>Email(s)</strong></p>
+                <div ng-repeat="email in contact.emails">
+                  <p>{{ email.value }}</p>
+                </div> 
+              </div>-->
+            </div>
+          </div>
+        </div>
+      </ion-content>
+</ion-view>

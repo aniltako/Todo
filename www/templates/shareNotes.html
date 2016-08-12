@@ -1,0 +1,42 @@
+<ion-view view-title="{{phoneNumber}}">
+	<ion-content class="padding" id="messageRoom">
+
+		<!-- <h1>{{messages}}</h1> -->
+		<!-- <label ng-repeat="message in messages">
+			
+			<p>{{message.message}}</p>
+		</label> -->
+
+		<!-- <div id="messageRoom" ng-repeat="message in messages">
+			
+			<p>{{message.message}}</p>
+		</div> -->
+
+		<div id="messageBox" ng-switch="message.author" ng-repeat="message in messages">
+			<div ng-switch-when="9813369613" id="rightMessage">
+				<p>{{message.message}}</p>
+			</div>
+			<div ng-switch-default id="leftMessage">
+				<p>{{message.message}}</p>
+			</div>
+			
+		</div>
+
+
+	    <!-- <ul>
+	      <li ng-repeat="message in messages">
+	       <p>{{message.message}}</p>
+	      </li>
+	    </ul> -->
+	</ion-content>
+	<div class="bar bar-footer item-input-inset">
+	  <label class="item-input-wrapper">
+	    <i class="icon ion-compose placeholder-icon"></i>
+	    <input ng-model="message.message" type="search" placeholder="Write a message........">
+	  </label>
+	  <button class="button button-positive" ng-click="sendMessage()">
+	    Send
+	  </button>
+	</div>
+	
+</ion-view>

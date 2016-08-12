@@ -1,0 +1,35 @@
+<ion-view view-title="List" class="has-header">
+	<ion-content class="has-footer" class="chatRoom" >
+		
+	    <ion-list show-reorder="reordering">
+	      <ion-item class="item-remove-animate item-icon-right" 
+	      href="#/edit/{{note.id}}" class="item" 
+	      ng-repeat="note in notes track by note.id"
+	      on-hold="show(note.id)">
+	        <h2>{{note.title}}</h2>
+	        <p>{{note.description}}</p>
+	        <i class="icon ion-arrow-right-b"></i>
+	        <ion-reorder-button class="ion-drag" 
+	        on-reorder="move(note, $fromIndex, $toIndex)"></ion-reorder-button>
+	        <ion-option-button class="button-assertive icon-left ion-trash-b"  ng-click="remove(note.id)">Delete</ion-option-button>
+	      </ion-item>
+	    </ion-list>
+	</ion-content>
+	<div class="bar bar-footer bar-stable">
+		<a href="#/add" 
+		class="button button-balanced icon-left ion-compose">New Note</a>
+
+<!-- 		<button ng-click="searchContacts()" class="button button-positive icon-left ion-chatbox">Chat</button>
+ -->
+ 		<a href="#/shareNotes" class="button button-positive icon-left ion-chatbox">Chat</a>
+
+		
+
+		<button class="button icon-left ion-shuffle" 
+		ng-class="{true: 'button-assertive', false: 'button-positive'}[reordering]"
+		ng-click="toggleReordering()">Reorder</button>
+
+	</div>
+
+
+</ion-view>
